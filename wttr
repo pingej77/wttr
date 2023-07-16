@@ -1,0 +1,58 @@
+#!/bin/bash
+if [[ $1 == "--help" || $1 == "?" ]]; then
+    echo "Insert a locale (London, New York, Moscow) to get its weather."
+    echo -e "\nUse options -f, -F, or -u for Fahrenheit / US standard units."
+    echo "Use options -c, -C, or -m for Celsius / Metric units."
+    echo "Use option -M for Celsius with wind speed in m/s instead of km/h".
+    echo "Set default location (used when no argument is passed) using -d option followed by a locale."
+    echo "Use quotation marks around the default locale if it contains spaces, i.e.  wttr -d \"New York\""
+    echo -e "\nBy default, it will load the weather for the next 3 days"
+    echo "Use option -0 for current weather only, -1 for only today, and -2 for the next two days."
+    echo "Use option -n for a narrow view showing only day and night forecast."
+    echo -e "\nIf the wrong locale is loaded, try changing how it is written.  For example,"
+    echo "'st petersburg' loads St. Petersburg, Florida, while 'St.Petersburg' and 'Saint Petersburg' load the one in Russia."
+    echo "'Telaviv' loads Rua Telaviv, Brazil, while 'Tel Aviv' loads Tel Aviv, Israel"
+    echo "Three letter airport codes can be used as well"
+    exit 0
+fi
+#initialize var for options and remove follow request from output
+unit=?F
+
+#options
+while getopts ":fFucCmMd:n012" opt; do
+    case $opt in
+        #either f for Fahrenheit or u for US standard units
+        f) unit+=u ;;
+        F) unit+=u ;;
+        u) unit+=u ;;
+        #either c for Celsius or m for metric
+        c) unit+=m ;;
+        C) unit+=m ;;
+        m) unit+=m ;;
+        #capital M for metric with m/s instead of km/h
+        M) unit+=M ;;
+        #set a default locale to be used when no arguments are passed
+        d) touch $HOME/.config/.wttr_default && echo $OPTARG > $HOME/.config/.wttr_default ;;
+        #options to limit output
+        n) unit+=n ;;
+        0) unit+=0 ;;
+        1) unit+=1 ;;
+        2) unit+=2 ;;
+        #errors
+        \?) echo "unknown option -$OPTARG"; exit 1 ;;
+        *) echo "ERROR: must provide an argument to set a default locale"; echo "example:  wttr -d \"New York\""; exit 1 ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+#Accept argument or load default value
+#concatenate the string ('New York' becomes 'New+York') for use in the URL
+if [ $# != 0 ]; then
+    locale=$(echo $@ | sed 's/ /+/')
+else
+    locale=$(cat $HOME/.config/.wttr_default | sed 's/ /+/')
+    [ -z $locale ] && echo "No argument provided, please enter a locale or set a default locale using the -d option" && exit 2
+fi
+
+#pull the result for the specified locale
+curl https://wttr.in/${locale}$unit
