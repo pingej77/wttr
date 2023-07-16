@@ -16,7 +16,7 @@ Unit options are:
 
 -n makes the display narrow, -0 only displays current weather, -1 only displays today, and -2 only displays today and tomorrow
 
-Sometimes wttr.in is a bit finnicky when it comes to returning the right locale.  For example, 'st petersburg' loads St. Petersburg, Florida, while 'St.Petersburg' and 'Saint Petersburg' load St. Petersburg, Russia; Telaviv will load Rua Televiv, Brasil, while 'Tel Aviv' will return Tel Aviv, Israel.
+Sometimes wttr.in is a bit finnicky when it comes to returning the right locale.  For example, 'st petersburg' loads St. Petersburg, Florida, while 'St.Petersburg' and 'Saint Petersburg' load St. Petersburg, Russia; Telaviv will load Rua Telaviv, Brasil, while 'Tel Aviv' will return Tel Aviv, Israel.
 Locations can typically be in a variety of languages, i.e., Cologne, Colonia, Koln or Moscow, Москва, Moskau. 
 Three letter airport codes can be used as well to get weather information.
 
