@@ -20,6 +20,6 @@ Sometimes wttr.in is a bit finnicky when it comes to returning the right locale.
 Locations can typically be in a variety of languages, i.e., Cologne, Colonia, Koln or Moscow, Москва, Moskau. 
 Three letter airport codes can be used as well to get weather information.
 
-To install, just add the main 'wttr' file to somwhere in your $PATH such as /usr/local/bin/ and mark it as executable with chmod +x wttr
+To install, just add the main 'wttr' file to somwhere in your $PATH such as /usr/local/bin/ and mark it as executable with `chmod +x wttr`
 
 Just a small script. Enjoy!
