@@ -2,7 +2,7 @@
 Front end tool for command line weather app wttr.in
 
 https://wttr.in is a text-based weather website that can be fetched with curl.
-This sctipt calls wttr.in and also allows you to set a default locale, pass options using a more traditional syntax, and makes it a little bit quicker to type.  Otherwise, it has most of the same functionality as wttr.in.
+This script calls wttr.in and also allows you to set a default locale, pass options using a more traditional syntax, and makes it a little bit quicker to type.  Otherwise, it has most of the same functionality as wttr.in.
 
 When passing no options to wttr.in, it will often provide a best guess that is quite inaccurate.  For this reason, setting a default locale is sensible so you don't have to type it in every time.
 Do this with the -d option:
