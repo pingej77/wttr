@@ -48,9 +48,9 @@ shift $((OPTIND - 1))
 #Accept argument or load default value
 #concatenate the string ('New York' becomes 'New+York') for use in the URL
 if [ $# != 0 ]; then
-    locale=$(echo $@ | sed 's/ /+/')
+    locale=$(echo $@ | sed 's/ /+/g')
 else
-    locale=$(cat $HOME/.config/.wttr_default | sed 's/ /+/')
+    locale=$(cat $HOME/.config/.wttr_default | sed 's/ /+/g')
     [ -z $locale ] && echo "No argument provided, please enter a locale or set a default locale using the -d option" && exit 2
 fi
 
