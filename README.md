@@ -1,5 +1,5 @@
 # wttr
-Front end tool for command line weather app wttr.in
+Front end tool for text weather app wttr.in for the Linux command line
 
 https://wttr.in is a text-based weather website that can be fetched with curl.
 This script calls wttr.in and also allows you to set a default locale, pass options using a more traditional syntax, and makes it a little bit quicker to type.  Otherwise, it has most of the same functionality as wttr.in.
@@ -20,6 +20,10 @@ Sometimes wttr.in is a bit finnicky when it comes to returning the right locale.
 Locations can typically be in a variety of languages, i.e., Cologne, Colonia, Koln or Moscow, Москва, Moskau. 
 Three letter airport codes can be used as well to get weather information.
 
-To install, just add the main 'wttr' file to somwhere in your $PATH such as /usr/local/bin/ and mark it as executable with `chmod +x wttr`
+To install, run the following:
 
-Just a small script. Enjoy!
+`sudo curl -o /usr/local/bin/wttr https://raw.githubusercontent.com/pingej77/wttr/main/wttr && sudo chmod +x /usr/local/bin/wttr`
+
+If it doesn't work, just add the main 'wttr' file to somwhere in your $PATH such as /usr/local/bin/ and mark it as executable with `chmod +x wttr`
+
+Just a small bash script. Enjoy!
