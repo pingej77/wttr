@@ -22,7 +22,9 @@ Three letter airport codes can be used as well to get weather information.
 
 To install, run the following:
 
-`sudo curl -o /usr/local/bin/wttr https://raw.githubusercontent.com/pingej77/wttr/main/wttr && sudo chmod +x /usr/local/bin/wttr`
+```bash
+sudo curl -o /usr/local/bin/wttr https://raw.githubusercontent.com/pingej77/wttr/main/wttr && sudo chmod +x /usr/local/bin/wttr
+```
 
 If it doesn't work, just add the main 'wttr' file to somwhere in your $PATH such as /usr/local/bin/ and mark it as executable with `chmod +x wttr`
 
